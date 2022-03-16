@@ -1,0 +1,52 @@
+#model {
+    max-height: 300px;
+    width: 500px;
+    position: fixed;
+    top: 30%;
+    left:34% ;
+    overflow-y: scroll;
+    border-top: 1px solid rgb(219, 219, 219);
+    border-left: 1px solid rgb(219, 219, 219); 
+    border-bottom: 1px solid rgb(219, 219, 219);
+  }
+  #modal_head{
+      text-align: center;
+      background-color:rgb(165, 165, 165);
+      padding:5px;
+      font-weight: bold;
+  }
+  #modal_table {
+      width:100%;
+    background-color: rgb(252, 252, 252);
+    border: 2px solid rgb(230, 230, 230);  
+  }
+  #modal_table th {
+  width: 50%;   
+  background-color: rgb(214, 214, 214); 
+  padding: 5px 10px; 
+  }
+  #modal_table td {
+      width: 50%; 
+      padding: 5px;
+      border-right: 1px solid rgb(231, 231, 231);
+      border-bottom: 1px solid rgb(231, 231, 231);
+  }
+  .rate{
+      text-align: center;
+  }
+  #closeBtn{
+      padding: 2px 15px ;
+      border-radius: 20px;
+      background-color: white;
+      border: 1px solid red;
+      color: red;
+      font-size:14px;
+      transition: 0.5s;
+      position: absolute;
+      top: 2%;
+      right: 2%;
+  }
+  #closeBtn:hover{
+      background-color:rgb(231, 23, 23);
+      color: white;
+  }

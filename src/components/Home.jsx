@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import "./Home.css";
+import {Modal} from "./Modal"
 
 export const Home = () => {
   const [data, setData] = useState([]);
-  let [country,setCountry] = useState(""); 
-  const [modalData, setModalData] = useState([]);
-
+  const [countryCode,setCountryCode] = useState("");
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -20,36 +19,11 @@ export const Home = () => {
       });
   };
 
-  const handleClick = (e) => {
-    console.log("code:", e.code);
-    setCountry(e.name);
-    fetch(`https://app.callhub.io/pricing/${e.code}`)
-      .then((res) => res.json())
-      .then((res) => {
-        console.log("Country Pricing:", res);
-        let mData = groupData(res.rates);
-        setModalData(mData);
-        console.log("group:", mData);
-        setIsVisible(true);
-      });
-  };
-  console.log("ModelData:", modalData);
+ const handleClick =(e) => {
+   setCountryCode(e.code)
+   setIsVisible(true);
+ }
 
-  const groupData = (data) => {
-    let obj = {};
-    for (let i = 0; i < data.length; i++) {
-      if (obj[data[i].rate]) {
-        obj[data[i].rate] = [...obj[data[i].rate], data[i].prefix];
-      } else {
-        obj[data[i].rate] = [data[i].prefix];
-      }
-    }
-    return obj;
-  };
-
-  const handleClose = () => {
-    setIsVisible(false);
-  };
 
   return (
     <div id="home_main">
@@ -75,24 +49,7 @@ export const Home = () => {
         ))}
       </table>
       {isVisible ? (
-        <div id="model">
-           <p id="modal_head">{country}</p> 
-          <button onClick={handleClose} id="closeBtn">
-            close
-          </button>
-          <table id="modal_table">
-            <tr>
-              <th>Phone number starts with</th>
-              <th>Call cost</th>
-            </tr>
-            {Object.keys(modalData).map((e, i) => (
-              <tr>
-                <td>{modalData[e].join(" ")}</td>
-                <td className="rate">${e}/min</td>
-              </tr>
-            ))}
-          </table>
-        </div>
+        <Modal countryCode={countryCode} setIsVisible={setIsVisible} />
       ) : (
         <div></div>
       )}
