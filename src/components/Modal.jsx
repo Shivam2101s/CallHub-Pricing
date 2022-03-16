@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./Modal.css";
 
 export const Modal = ({ countryCode, setIsVisible }) => {
-  let [country, setCountry] = useState("");
+  const [country, setCountry] = useState("");
   const [modalData, setModalData] = useState([]);
 
   useEffect(() => {
