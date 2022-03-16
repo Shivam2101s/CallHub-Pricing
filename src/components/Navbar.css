@@ -1,0 +1,23 @@
+#navbar{
+    height: 80px;
+    background-color:white;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 3% ;
+    align-items:center;
+}
+#logo{
+    height: 32px;
+}
+#createBtn{
+    padding: 15px 20px;
+    background-color: #F69A1C;
+    border: none;
+    outline: none;
+    color: white;
+    font-weight: 550;
+    font-size:16px;
+}
+#createBtn:hover{
+    background-color: #d88a1d;
+}
